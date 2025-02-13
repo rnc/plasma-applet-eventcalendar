@@ -1,11 +1,11 @@
 // Version 2
 
-import QtQuick 2.0
+import QtQuick
 
 Item {
 	id: logger
 	property string name: 'logger'
-	property bool showDebug: false
+    property bool showDebug: true
 
 	function prettifyArguments(rawArgs) {
 		var args = Array.apply(null, rawArgs)

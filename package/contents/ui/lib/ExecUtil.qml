@@ -2,8 +2,9 @@
 
 import QtQuick 2.0
 import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.plasma.plasma5support as Plasma5Support
 
-PlasmaCore.DataSource {
+Plasma5Support.DataSource {
 	id: executable
 	engine: "executable"
 	connectedSources: []

@@ -19,8 +19,8 @@ PlasmoidItem {
 	Logger {
 		id: logger
 		name: 'eventcalendar'
-		showDebug: plasmoid.configuration.debugging
-		// showDebug: true
+        // showDebug: plasmoid.configuration.debugging
+        showDebug: true
 	}
 
 	ConfigMigration { id: configMigration }

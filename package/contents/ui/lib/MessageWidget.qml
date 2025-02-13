@@ -1,10 +1,10 @@
 // Version 6
 
 import QtQuick 2.0
-import QtQuick.Controls 1.2
+import QtQuick.Controls
 import QtQuick.Layouts 1.0
 
-import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.kirigami 2.0 as Kirigami
 
 // Origionally from digitalclock's configTimeZones.qml
 // Recoloured with Bootstrap color scheme
@@ -163,7 +163,7 @@ Rectangle {
 		anchors.margins: units.smallSpacing
 		spacing: units.smallSpacing
 
-		PlasmaCore.IconItem {
+        Kirigami.Icon{
 			id: iconItem
 			Layout.alignment: Qt.AlignVCenter
 			implicitHeight: messageWidget.iconSize
@@ -183,7 +183,7 @@ Rectangle {
 		ToolButton {
 			id: closeButton
 			Layout.alignment: Qt.AlignVCenter
-			iconName: "dialog-close"
+            icon.name: "dialog-close"
 
 			onClicked: {
 				messageWidget.close()

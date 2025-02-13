@@ -1,7 +1,8 @@
 import QtQuick 2.0
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.plasma.extras as PlasmaExtras
 
-PlasmaComponents.ContextMenu {
+PlasmaExtras.Menu {
 	id: contextMenu
 
 	signal populate(var contextMenu)
