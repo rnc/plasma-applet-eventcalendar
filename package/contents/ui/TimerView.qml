@@ -212,7 +212,7 @@ Item {
 
 	Connections {
 		target: timerModel
-		onSecondsLeftChanged: {
+        function onSecondsLeftChanged() {
 			timerLabel.text = timerModel.formatTimer(timerModel.secondsLeft)
 		}
 	}
@@ -224,10 +224,10 @@ Item {
 		id: contextMenu
 
 		function newSeperator() {
-			return Qt.createQmlObject("import org.kde.plasma.components 2.0 as PlasmaComponents; PlasmaExtras.Menu { separator: true }", contextMenu)
+			return Qt.createQmlObject("import org.kde.plasma.components as PlasmaComponents; PlasmaExtras.Menu { separator: true }", contextMenu)
 		}
 		function newMenuItem() {
-			return Qt.createQmlObject("import org.kde.plasma.components 2.0 as PlasmaComponents; PlasmaExtras.Menu {}", contextMenu)
+			return Qt.createQmlObject("import org.kde.plasma.components as PlasmaComponents; PlasmaExtras.Menu {}", contextMenu)
 		}
 
 		function loadDynamicActions() {

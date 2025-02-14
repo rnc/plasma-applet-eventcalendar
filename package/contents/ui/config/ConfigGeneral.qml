@@ -1,9 +1,8 @@
-import QtQuick 2.0
-import QtQuick.Controls 1.0
-import QtQuick.Controls.Styles 1.0
-import QtQuick.Dialogs 1.0
-import QtQuick.Layouts 1.0
-import org.kde.kirigami 2.0 as Kirigami
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Dialogs
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
 
 import ".."
 import "../lib"
@@ -34,6 +33,7 @@ ConfigPage {
 
 
 	//---
+    Kirigami.FormLayout {
 
 	HeaderText {
 		text: i18n("Widgets")
@@ -45,12 +45,12 @@ ConfigPage {
 		text: i18n("Show/Hide widgets above the calendar. Toggle Agenda/Calendar on their respective tabs.")
 	}
 
-	ConfigSection {
-		ConfigCheckBox {
-			configKey: 'widgetShowMeteogram'
+    // ConfigSection {
+        CheckBox {
+            id: widgetShowMeteogram
 			text: i18n("Meteogram")
 		}
-	}
+//	}
 
 	ConfigSection {
 		ConfigCheckBox {
@@ -275,12 +275,12 @@ ConfigPage {
 			level: 3
 		}
 		ConfigSection {
-			ExclusiveGroup { id: clockMousewheelGroup }
+            // ExclusiveGroup { id: clockMousewheelGroup }
 
 			RadioButton {
 				id: clockMousewheelGroupRunCommands
 				text: i18n("Run Commands")
-				exclusiveGroup: clockMousewheelGroup
+                // exclusiveGroup: clockMousewheelGroup
 				checked: plasmoid.configuration.clockMouseWheel == 'RunCommands'
 				onClicked: plasmoid.configuration.clockMouseWheel = 'RunCommands'
 			}
@@ -308,7 +308,7 @@ ConfigPage {
 			}
 
 			RadioButton {
-				exclusiveGroup: clockMousewheelGroup
+                // exclusiveGroup: clockMousewheelGroup
 				checked: false
 				text: i18n("Volume (No UI) (amixer)")
 				property string upCommand:   'amixer -q sset Master 10%+'
@@ -317,7 +317,7 @@ ConfigPage {
 			}
 			
 			RadioButton {
-				exclusiveGroup: clockMousewheelGroup
+                // exclusiveGroup: clockMousewheelGroup
 				checked: false
 				text: i18n("Volume (UI) (qdbus)")
 				property string upCommand:   'qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "increase_volume"'
@@ -354,4 +354,5 @@ ConfigPage {
 			text: i18n("Enable Debugging")
 		}
 	}
+    }
 }

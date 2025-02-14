@@ -1,10 +1,10 @@
 // Version 6
 
-import QtQuick 2.0
+import QtQuick
 import QtQuick.Controls
-import QtQuick.Layouts 1.0
+import QtQuick.Layouts
 
-import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kirigami as Kirigami
 
 // Origionally from digitalclock's configTimeZones.qml
 // Recoloured with Bootstrap color scheme

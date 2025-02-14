@@ -297,12 +297,12 @@ Item {
 		EventCountBadge {}
 	}
 
-	Connections {
-		target: theme
-		onTextColorChanged: {
-			canvas.requestPaint()
-		}
-	}
+    // Connections {
+    // 	target: theme
+ //        function onTextColorChanged() {
+    // 		canvas.requestPaint()
+    // 	}
+    // }
 
 	Column {
 		id: weeksColumn

@@ -22,7 +22,7 @@ Item {
 
 	Connections {
 		target: eventModel
-		onEventCreated: {
+        function onEventCreated() {
 			notificationManager.notify({
 				appName: i18n("Event Calendar"),
 				appIcon: "resource-calendar-insert",
@@ -34,7 +34,7 @@ Item {
 				})
 			})
 		}
-		onEventDeleted: {
+        function onEventDeleted() {
 			logger.logJSON('AgendaView.onEventDeleted', data)
 			notificationManager.notify({
 				appName: i18n("Event Calendar"),

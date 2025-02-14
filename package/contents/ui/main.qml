@@ -171,7 +171,7 @@ PlasmoidItem {
 		function setToday(d) {
 			logger.debug('setToday', d)
 			today = d
-			// console.log(root.timezone, dataSource.data[root.timezone]["DateTime"])
+            console.log(root.timezone, dataSource.data[root.timezone]["DateTime"])
 			logger.debug('currentTime', timeModel.currentTime)
 			monthViewDate = today
 			selectedDate = today
@@ -180,7 +180,7 @@ PlasmoidItem {
 
 		Connections {
 			target: timeModel
-			onDateChanged: {
+            function onDateChanged() {
 				popup.updateToday()
 				logger.debug('root.onDateChanged', timeModel.currentTime, popup.today)
 			}
