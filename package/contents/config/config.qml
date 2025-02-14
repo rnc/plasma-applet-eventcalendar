@@ -50,7 +50,8 @@ ConfigModel {
 	}
 	ConfigCategory {
 		name: i18n("Google Calendar")
-		icon: plasmoid.file("", "icons/google_calendar_96px.png")
+// TODO: Fix filename/icon path
+//		icon: plasmoid.file("", "icons/google_calendar_96px.png")
 		source: "config/ConfigGoogleCalendar.qml"
 	}
 	ConfigCategory {

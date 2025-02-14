@@ -26,7 +26,7 @@ RowLayout {
 		id: sfxEnabledCheckBox
 	}
 	Button {
-		iconName: "media-playback-start-symbolic"
+        icon.name: "media-playback-start-symbolic"
 		enabled: sfxEnabled && !!sfxTest
 		onClicked: {
 			sfxTest.source = sfxPath.value
@@ -39,14 +39,14 @@ RowLayout {
 		Layout.fillWidth: true
 	}
 	Button {
-		iconName: "folder-symbolic"
+        icon.name: "folder-symbolic"
 		enabled: sfxEnabled
 		onClicked: sfxPathDialog.visible = true
 
 		FileDialog {
 			id: sfxPathDialog
 			title: i18n("Choose a sound effect")
-			folder: '/usr/share/sounds'
+            currentFolder: '/usr/share/sounds'
 			nameFilters: [
 				i18n("Sound files (%1)", "*.wav *.mp3 *.oga *.ogg"),
 				i18n("All files (%1)", "*"),

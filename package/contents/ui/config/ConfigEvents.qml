@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
-import org.kde.plasma.calendar as PlasmaCalendar
+import org.kde.plasma.workspace.calendar as PlasmaCalendar
 
 import "../lib"
 import "../calendars/PlasmaCalendarUtils.js" as PlasmaCalendarUtils

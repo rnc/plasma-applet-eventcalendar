@@ -49,12 +49,12 @@ ConfigPage {
 			text: i18n("Calendars")
 		}
 		Button {
-			iconName: "resource-calendar-insert"
+            icon.name: "resource-calendar-insert"
 			text: i18n("Add Calendar")
 			onClicked: calendarsModel.addCalendar()
 		}
 		Button {
-			iconName: "resource-calendar-insert"
+            icon.name: "resource-calendar-insert"
 			text: i18n("New Calendar")
 			onClicked: calendarsModel.addNewCalendar()
 		}
@@ -62,7 +62,7 @@ ConfigPage {
 
 	ColumnLayout {
 		Layout.fillWidth: true
-		spacing: 20 * Kirigami.Units.devicePixelRatio // x4 the default spacing (5px)
+        spacing: 20 * Kirigami.Units.gridUnit // x4 the default spacing (5px)
 
 		Repeater {
 			model: calendarsModel
@@ -74,7 +74,7 @@ ConfigPage {
 					Layout.preferredWidth: height
 					Layout.alignment: Qt.AlignTop
 					checked: show
-					style: CheckBoxStyle {}
+                    // style: CheckBoxStyle {}
 
 					onClicked: {
 						calendarsModel.setProperty(index, 'show', checked)

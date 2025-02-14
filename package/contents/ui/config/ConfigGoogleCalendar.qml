@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Controls.Styles
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
@@ -195,7 +194,7 @@ ConfigPage {
 		}
 
 		Button {
-			iconName: "view-refresh"
+            icon.name: "view-refresh"
 			text: i18n("Refresh")
 			onClicked: googleLoginManager.updateCalendarList()
 		}
@@ -230,25 +229,25 @@ ConfigPage {
 				delegate: CheckBox {
 					text: model.name
 					checked: model.show
-					style: CheckBoxStyle {
-						label: RowLayout {
-							Rectangle {
-								Layout.fillHeight: true
-								Layout.preferredWidth: height
-								color: model.backgroundColor
-							}
-							Label {
-								id: labelText
-								text: control.text
-							}
-							LockIcon {
-								Layout.fillHeight: true
-								Layout.preferredWidth: height
-								visible: model.isReadOnly
-							}
-						}
+                    // style: CheckBoxStyle {
+                    // 	label: RowLayout {
+                    // 		Rectangle {
+                    // 			Layout.fillHeight: true
+                    // 			Layout.preferredWidth: height
+                    // 			color: model.backgroundColor
+                    // 		}
+                    // 		Label {
+                    // 			id: labelText
+                    // 			text: control.text
+                    // 		}
+                    // 		LockIcon {
+                    // 			Layout.fillHeight: true
+                    // 			Layout.preferredWidth: height
+                    // 			visible: model.isReadOnly
+                    // 		}
+                    // 	}
 						
-					}
+                    // }
 
 					onClicked: {
 						calendarsModel.setProperty(index, 'show', checked)
@@ -278,7 +277,7 @@ ConfigPage {
 		}
 
 		Button {
-			iconName: "view-refresh"
+            icon.name: "view-refresh"
 			text: i18n("Refresh")
 			onClicked: googleLoginManager.updateTasklistList()
 		}
@@ -313,25 +312,24 @@ ConfigPage {
 				delegate: CheckBox {
 					text: model.name
 					checked: model.show
-					style: CheckBoxStyle {
-						label: RowLayout {
-							Rectangle {
-								Layout.fillHeight: true
-								Layout.preferredWidth: height
-								color: model.backgroundColor
-							}
-							Label {
-								id: labelText
-								text: control.text
-							}
-							LockIcon {
-								Layout.fillHeight: true
-								Layout.preferredWidth: height
-								visible: model.isReadOnly
-							}
-						}
-						
-					}
+                    // style: CheckBoxStyle {
+                    // 	label: RowLayout {
+                    // 		Rectangle {
+                    // 			Layout.fillHeight: true
+                    // 			Layout.preferredWidth: height
+                    // 			color: model.backgroundColor
+                    // 		}
+                    // 		Label {
+                    // 			id: labelText
+                    // 			text: control.text
+                    // 		}
+                    // 		LockIcon {
+                    // 			Layout.fillHeight: true
+                    // 			Layout.preferredWidth: height
+                    // 			visible: model.isReadOnly
+                    // 		}
+                    // 	}
+                    // }
 
 					onClicked: {
 						tasklistsModel.setProperty(index, 'show', checked)

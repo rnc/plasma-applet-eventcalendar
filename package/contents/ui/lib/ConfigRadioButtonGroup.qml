@@ -20,10 +20,8 @@ ConfigRadioButtonGroup {
 RowLayout {
 	id: configRadioButtonGroup
 	Layout.fillWidth: true
-	default property alias _contentChildren: content.data
+    default property alias _contentChildren: content.data
 	property alias label: label.text
-
-	property var exclusiveGroup: ExclusiveGroup { id: radioButtonGroup }
 
 	property string configKey: ''
 	readonly property var configValue: configKey ? plasmoid.configuration[configKey] : ""
@@ -36,17 +34,19 @@ RowLayout {
 		visible: !!text
 		Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 	}
-	ColumnLayout {
-		id: content
+    ButtonGroup{ id: layoutGroup
+        buttons: column.children
+    }
+    Column {
+        id: column
 
-		Repeater {
+        Repeater {
 			id: buttonRepeater
 			RadioButton {
 				visible: typeof modelData.visible !== "undefined" ? modelData.visible : true
 				enabled: typeof modelData.enabled !== "undefined" ? modelData.enabled : true
 				text: modelData.text
 				checked: modelData.value === configValue
-				exclusiveGroup: radioButtonGroup
 				onClicked: {
 					focus = true
 					if (configKey) {

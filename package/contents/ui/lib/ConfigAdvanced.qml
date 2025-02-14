@@ -54,7 +54,8 @@ ColumnLayout {
 				SpinBox {
 					value: modelValue
 					readonly property bool isInteger: modelConfigType === 'uint' || modelConfigType === 'int' || Number.isInteger(modelValue)
-					decimals: isInteger ? 0 : 3
+                    // TODO: decimals has been removed and migrated to QDoubleSpinBox
+                    // decimals: isInteger ? 0 : 3
 					maximumValue: Number.MAX_SAFE_INTEGER
 					Component.onCompleted: {
 						valueChanged.connect(function() {

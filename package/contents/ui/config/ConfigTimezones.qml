@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import Qt.labs.qmlmodels
 
 import org.kde.plasma.private.digitalclock as DigitalClock
 
@@ -41,27 +42,33 @@ ColumnLayout { // ConfigPage creates a binding loop when a child uses fillHeight
 
 		Keys.onSpacePressed: toggleCurrent()
 
-		model: DigitalClock.TimeZoneFilterProxy {
-			sourceModel: timeZoneModel
-			filterString: filter.text
-		}
+        // TODO: Can't have TableViewColumn so need to do a embedded TableModel
+        // model: DigitalClock.TimeZoneFilterProxy {
+        //     sourceModel: timeZoneModel
+        //     filterString: filter.text
+        // }
 
-		TableViewColumn {
-			role: "city"
-			title: digitalclock_i18n("City")
+        model : TableModel {
+
+        TableModelColumn {
+            // role: "city"
+            display: digitalclock_i18n("City")
 		}
-		TableViewColumn {
-			role: "region"
-			title: digitalclock_i18n("Region")
+        TableModelColumn {
+            // role: "region"
+            display: digitalclock_i18n("Region")
 		}
-		TableViewColumn {
-			role: "comment"
-			title: digitalclock_i18n("Comment")
+        TableModelColumn{
+            // role: "comment"
+            display: digitalclock_i18n("Comment")
 		}
-		TableViewColumn {
-			role: "checked"
-			title: i18n("Tooltip")
-			delegate: CheckBox {
+        TableModelColumn {
+//			role: "checked"
+            display: i18n("Tooltip")
+        }
+        }
+
+        delegate: CheckBox {
 				id: checkBox
 				anchors.centerIn: parent
 				checked: styleData.value
@@ -80,7 +87,7 @@ ColumnLayout { // ConfigPage creates a binding loop when a child uses fillHeight
 
 				Connections {
 					target: timeZoneView
-					onToggleCurrent: {
+                    function onToggleCurrent() {
 						if (styleData.row === timeZoneView.currentRow) {
 							checkBox.setValue(!checkBox.checked)
 						}
@@ -88,14 +95,20 @@ ColumnLayout { // ConfigPage creates a binding loop when a child uses fillHeight
 				}
 			}
 
-			resizable: false
-			movable: false
-		}
+
+        resizableColumns: false
+        resizableRows: false
+            // resizable: false
+            // movable: false
+        // }
 	}
 
 
-	ExclusiveGroup { id: timezoneDisplayType }
+    ButtonGroup{ id: layoutGroup
+        buttons: column.children
+    }
 	RowLayout {
+        id: column
 		Label {
 			text: digitalclock_i18n("Display time zone as:")
 		}
@@ -103,7 +116,6 @@ ColumnLayout { // ConfigPage creates a binding loop when a child uses fillHeight
 		RadioButton {
 			id: timezoneCityRadio
 			text: digitalclock_i18n("Time zone city")
-			exclusiveGroup: timezoneDisplayType
 			checked: !plasmoid.configuration.displayTimezoneAsCode
 			onClicked: plasmoid.configuration.displayTimezoneAsCode = false
 		}
@@ -111,7 +123,6 @@ ColumnLayout { // ConfigPage creates a binding loop when a child uses fillHeight
 		RadioButton {
 			id: timezoneCodeRadio
 			text: digitalclock_i18n("Time zone code")
-			exclusiveGroup: timezoneDisplayType
 			checked: plasmoid.configuration.displayTimezoneAsCode
 			onClicked: plasmoid.configuration.displayTimezoneAsCode = true
 		}

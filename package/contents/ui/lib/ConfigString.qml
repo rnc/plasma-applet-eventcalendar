@@ -22,7 +22,7 @@ TextField {
 	onTextChanged: serializeTimer.restart()
 
 	ToolButton {
-		iconName: "edit-clear"
+        icon.name: "edit-clear"
 		onClicked: configString.value = defaultValue
 
 		anchors.top: parent.top

@@ -12,16 +12,16 @@ GridLayout {
 
 	property int orientation: Qt.Horizontal
 	property color lineColor: "#000"
-	property int lineThickness: 2 * Kirigami.Units.devicePixelRatio
+    property int lineThickness: 2 * Kirigami.Units.gridUnit
 
 	property alias configKey: configSpinBox.configKey
 	property alias configValue: configSpinBox.configValue
-	property alias horizontalAlignment: configSpinBox.horizontalAlignment
+    // property alias horizontalAlignment: configSpinBox.horizontalAlignment
 	property alias maximumValue: configSpinBox.maximumValue
 	property alias minimumValue: configSpinBox.minimumValue
-	property alias prefix: configSpinBox.prefix
+    property alias prefix: configSpinBox.prefix
 	property alias stepSize: configSpinBox.stepSize
-	property alias suffix: configSpinBox.suffix
+    property alias suffix: configSpinBox.suffix
 	property alias value: configSpinBox.value
 
 	property alias before: configSpinBox.before

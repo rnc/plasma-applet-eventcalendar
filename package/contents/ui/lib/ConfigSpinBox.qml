@@ -7,15 +7,16 @@ import QtQuick.Layouts
 RowLayout {
 	id: configSpinBox
 
-	property string configKey: ''
+    property string configKey: ''
 	readonly property var configValue: configKey ? plasmoid.configuration[configKey] : 0
-	property alias decimals: spinBox.decimals
-	property alias horizontalAlignment: spinBox.horizontalAlignment
-	property alias maximumValue: spinBox.maximumValue
-	property alias minimumValue: spinBox.minimumValue
-	property alias prefix: spinBox.prefix
-	property alias stepSize: spinBox.stepSize
-	property alias suffix: spinBox.suffix
+    // TODO: decimals has been removed and potentially migrated to QDoubleSpinBox
+    // property alias decimals: spinBox.decimals
+    // property alias horizontalAlignment: spinBox.horizontalAlignment
+    property alias maximumValue: spinBox.to
+    property alias minimumValue: spinBox.from
+    property alias prefix: spinBox.prefix
+    property alias stepSize: spinBox.stepSize
+    property alias suffix: spinBox.suffix
 	property alias value: spinBox.value
 
 	property alias before: labelBefore.text
@@ -28,11 +29,17 @@ RowLayout {
 	}
 	
 	SpinBox {
-		id: spinBox
+        property string suffix
+        property string prefix
 
-		value: configValue
+        id: spinBox
+
+        value: configSpinBox.configValue
 		onValueChanged: serializeTimer.start()
-		maximumValue: 2147483647
+
+        textFromValue: function(value) { return prefix + " " + value + " " + suffix; }
+        valueFromText: function(text) { return Number(text.split(" ")[1]); }
+        to: 2147483647
 	}
 
 	Label {
@@ -45,7 +52,7 @@ RowLayout {
 		id: serializeTimer
 		interval: 300
 		onTriggered: {
-			if (configKey) {
+            if (configSpinBox.configKey) {
 				plasmoid.configuration[configKey] = value
 			}
 		}
