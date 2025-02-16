@@ -18,7 +18,8 @@ RowLayout {
 	property alias label: label.text
 	property alias labelColor: label.color
 	property alias horizontalAlignment: label.horizontalAlignment
-	property alias showAlphaChannel: dialog.showAlphaChannel
+    // TODO: QT6 does not have this property
+    // property alias showAlphaChannel: ColorDialog.showAlphaChannel
 	property color buttonOutlineColor: {
 		if (valueColor.r + valueColor.g + valueColor.b > 0.5) {
 			return "#BB000000" // Black outline
@@ -110,9 +111,9 @@ RowLayout {
 		visible: false
 		modality: Qt.WindowModal
 		title: configColor.label
-		showAlphaChannel: true
-		color: configColor.valueColor
-		onCurrentColorChanged: {
+        // showAlphaChannel: true
+        selectedColor: configColor.valueColor
+        onAccepted: {
 			if (visible && color != currentColor) {
 				configColor.value = currentColor
 			}
