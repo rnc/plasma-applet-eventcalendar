@@ -11,6 +11,8 @@ ConfigPage {
 
 	property int indentWidth: 24 * Kirigami.Units.devicePixelRatio
 
+    Kirigami.FormLayout {
+
 	ConfigCheckBox {
 		configKey: 'widgetShowAgenda'
 		text: i18n("Show agenda")
@@ -69,7 +71,7 @@ ConfigPage {
 			label: i18n("Click Weather:")
 			RadioButton {
 				text: i18n("Open City Forecast In Browser")
-				exclusiveGroup: clickWeatherGroup.exclusiveGroup
+                // exclusiveGroup: clickWeatherGroup.exclusiveGroup
 				checked: true
 			}
 		}
@@ -81,12 +83,12 @@ ConfigPage {
 			label: i18n("Click Date:")
 			RadioButton {
 				text: i18n("Open New Event In Browser")
-				exclusiveGroup: clickDateGroup.exclusiveGroup
+                // exclusiveGroup: clickDateGroup.exclusiveGroup
 				enabled: false
 			}
 			RadioButton {
 				text: i18n("Open New Event Form")
-				exclusiveGroup: clickDateGroup.exclusiveGroup
+                // exclusiveGroup: clickDateGroup.exclusiveGroup
 				checked: true
 			}
 		}
@@ -116,7 +118,7 @@ ConfigPage {
 			label: i18n("Click Event:")
 			RadioButton {
 				text: i18n("Open Event In Browser")
-				exclusiveGroup: clickEventGroup.exclusiveGroup
+                // exclusiveGroup: clickEventGroup.exclusiveGroup
 				checked: true
 			}
 		}
@@ -184,5 +186,5 @@ ConfigPage {
 			suffix: i18n("px")
 		}
 	}
-
+    }
 }

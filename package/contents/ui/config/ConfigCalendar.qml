@@ -1,11 +1,14 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
 
 import "../lib"
 
 ConfigPage {
 	id: page
+
+    Kirigami.FormLayout {
 
 	ConfigCheckBox {
 		configKey: 'widgetShowCalendar'
@@ -18,7 +21,7 @@ ConfigPage {
 			label: i18n("Click Date:")
 			RadioButton {
 				text: i18n("Scroll to event in Agenda")
-				exclusiveGroup: clickDateGroup.exclusiveGroup
+                // exclusiveGroup: clickDateGroup.exclusiveGroup
 				checked: true
 			}
 		}
@@ -122,7 +125,7 @@ ConfigPage {
 			label: i18n("Selected:")
 			RadioButton {
 				text: i18n("Solid Color (Highlight)")
-				exclusiveGroup: selectedStyleGroup.exclusiveGroup
+                // exclusiveGroup: selectedStyleGroup.exclusiveGroup
 				checked: true
 			}
 		}
@@ -136,5 +139,5 @@ ConfigPage {
 			]
 		}
 	}
-
+    }
 }

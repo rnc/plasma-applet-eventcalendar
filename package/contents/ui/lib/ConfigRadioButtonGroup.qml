@@ -20,7 +20,7 @@ ConfigRadioButtonGroup {
 RowLayout {
 	id: configRadioButtonGroup
 	Layout.fillWidth: true
-    default property alias _contentChildren: content.data
+    default property alias _contentChildren: configRadioButtonGroup.data
 	property alias label: label.text
 
 	property string configKey: ''
