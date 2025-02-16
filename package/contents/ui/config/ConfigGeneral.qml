@@ -21,7 +21,7 @@ ConfigPage {
 	property string timeFormat12hour: 'h:mm AP'
 
 	property bool showDebug: plasmoid.configuration.debugging
-	property int indentWidth: 24 * Kirigami.Units.devicePixelRatio
+    property int indentWidth: 24 * Kirigami.Units.gridUnit
 
 	function setMouseWheelCommands(up, down) {
 		plasmoid.configuration.clockMouseWheel == 'RunCommands'

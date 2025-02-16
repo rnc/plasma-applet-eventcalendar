@@ -55,7 +55,10 @@ Item {
 		// clip: true
 		readonly property int viewportWidth: viewport ? viewport.width : width
 		readonly property int viewportHeight: viewport ? viewport.height : height
-		readonly property int scrollY: flickableItem ? flickableItem.contentY : 0
+        // TODO: What is the best replacement for "flickableItem ? flickableItem.contentY : 0"
+        // readonly property int scrollY: contentHeight
+        //property int scrollY: contentHeight
+        QQC2.ScrollBar.vertical.policy: QQC2.ScrollBar.AlwaysOn
 
 		// onScrollYChanged: console.log('scrollY', scrollY)
 
@@ -139,8 +142,10 @@ Item {
 		}
 
 		function scrollToY(offsetY) {
-			flickableItem.contentY = Math.min(offsetY, contentHeight-viewportHeight)
-		}
+            // TODO: : What is the best replacement for "flickableItem"
+            // flickableItem.contentY = Math.min(offsetY, contentHeight-viewportHeight)
+            QQC2.ScrollBar.vertical.position = Math.min(offsetY, contentHeight-viewportHeight);
+        }
 
 		function positionViewAtBeginning() {
 			scrollToY(0)

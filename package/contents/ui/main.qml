@@ -14,7 +14,7 @@ import org.kde.plasma.private.digitalclock as DigitalClock
 import "./lib"
 
 PlasmoidItem {
-	id: root
+    id: root
 
 	Logger {
 		id: logger
@@ -101,7 +101,7 @@ PlasmoidItem {
 
 			onClicked: {
 				if (mouse.button == Qt.LeftButton) {
-					plasmoid.expanded = !plasmoid.expanded
+                    plasmoid.expanded = !plasmoid.expanded
 				}
 			}
 
@@ -155,7 +155,7 @@ PlasmoidItem {
 			}
 		}
 
-		property bool isExpanded: plasmoid.expanded
+        property bool isExpanded: plasmoid.expanded
 		onIsExpandedChanged: {
 			logger.debug('isExpanded', isExpanded)
 			if (isExpanded) {
@@ -210,7 +210,7 @@ PlasmoidItem {
 	Plasmoid.backgroundHints: plasmoid.configuration.showBackground ? PlasmaCore.Types.DefaultBackground : PlasmaCore.Types.NoBackground
 
 	property bool isDesktopContainment: plasmoid.location == PlasmaCore.Types.Floating
-	preferredRepresentation: isDesktopContainment ? Plasmoid.fullRepresentation : Plasmoid.compactRepresentation
+    preferredRepresentation: isDesktopContainment ? Plasmoid.fullRepresentation : Plasmoid.compactRepresentation
 	compactRepresentation: clockComponent
 	fullRepresentation: popupComponent
 
@@ -240,7 +240,7 @@ PlasmoidItem {
 	Component.onCompleted: {
 		DigitalClock.ClipboardMenu.setupMenu(clipboardAction)
 
-		// Plasmoid.internalAction("configure").trigger()
+        //Plasmoid.internalAction("configure").trigger()
 	}
 
 	// Timer {
