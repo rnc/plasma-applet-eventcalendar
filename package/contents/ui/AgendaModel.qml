@@ -377,7 +377,7 @@ ListModel {
 					agendaItem.tempHigh = Math.ceil(forecastItem.temp.max)
 					agendaModel.setProperty(i, 'tempLow', Math.floor(forecastItem.temp.min))
 					agendaModel.setProperty(i, 'tempHigh', Math.ceil(forecastItem.temp.max))
-					agendaModel.setProperty(i, 'weatherIcon', forecastItem.iconName || 'weather-severe-alert')
+					agendaModel.setProperty(i, 'weatherIcon', forecastItem.icon.name || 'weather-severe-alert')
 					agendaModel.setProperty(i, 'weatherText', forecastItem.text || '')
 					agendaModel.setProperty(i, 'weatherDescription', forecastItem.description || '')
 					agendaModel.setProperty(i, 'weatherNotes', forecastItem.notes || '')

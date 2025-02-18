@@ -30,7 +30,7 @@ PlasmoidItem {
 
 	property alias eventModel: eventModel
 	property alias agendaModel: agendaModel
-	
+
 	TimeModel { id: timeModel }
 	TimerModel { id: timerModel }
 	EventModel { id: eventModel }
@@ -101,7 +101,7 @@ PlasmoidItem {
 
 			onClicked: {
 				if (mouse.button == Qt.LeftButton) {
-                    plasmoid.expanded = !plasmoid.expanded
+					root.expanded = !root.expanded
 				}
 			}
 
@@ -155,7 +155,7 @@ PlasmoidItem {
 			}
 		}
 
-        property bool isExpanded: plasmoid.expanded
+		property bool isExpanded: root.expanded
 		onIsExpandedChanged: {
 			logger.debug('isExpanded', isExpanded)
 			if (isExpanded) {

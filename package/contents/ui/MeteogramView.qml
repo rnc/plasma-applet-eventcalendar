@@ -452,7 +452,7 @@ Item {
 				precipitation: item.precipitation,
 				tooltipMainText: new Date(item.dt * 1000),
 				tooltipSubText: tooltipSubText,
-				weatherIcon: item.iconName || 'question',
+				weatherIcon: item.icon.name || 'question',
 			}
 		}
 

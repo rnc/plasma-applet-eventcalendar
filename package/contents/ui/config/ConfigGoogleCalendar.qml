@@ -277,7 +277,7 @@ ConfigPage {
 		}
 
 		Button {
-            icon.name: "view-refresh"
+			icon.name: "view-refresh"
 			text: i18n("Refresh")
 			onClicked: googleLoginManager.updateTasklistList()
 		}

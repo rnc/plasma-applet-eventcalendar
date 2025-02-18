@@ -53,12 +53,15 @@ Item {
 		id: agendaScrollView
 		anchors.fill: parent
 		// clip: true
-		readonly property int viewportWidth: viewport ? viewport.width : width
-		readonly property int viewportHeight: viewport ? viewport.height : height
+        // readonly property int viewportWidth: viewport ? viewport.width : width
+        // readonly property int viewportHeight: viewport ? viewport.height : height
         // TODO: What is the best replacement for "flickableItem ? flickableItem.contentY : 0"
         // readonly property int scrollY: contentHeight
         //property int scrollY: contentHeight
-        QQC2.ScrollBar.vertical.policy: QQC2.ScrollBar.AlwaysOn
+        // QQC2.ScrollBar.vertical.policy: QQC2.ScrollBar.AlwaysOn
+		readonly property int viewportWidth: agendaScrollView.viewport ? agendaScrollView.viewport.width : width
+		readonly property int viewportHeight: agendaScrollView.viewport ? agendaScrollView.viewport.height : height
+		readonly property int scrollY: agendaScrollView.flickableItem ? agendaScrollView.flickableItem.contentY : 0
 
 		// onScrollYChanged: console.log('scrollY', scrollY)
 
@@ -144,8 +147,9 @@ Item {
 		function scrollToY(offsetY) {
             // TODO: : What is the best replacement for "flickableItem"
             // flickableItem.contentY = Math.min(offsetY, contentHeight-viewportHeight)
-            QQC2.ScrollBar.vertical.position = Math.min(offsetY, contentHeight-viewportHeight);
-        }
+            // QQC2.ScrollBar.vertical.position = Math.min(offsetY, contentHeight-viewportHeight);
+			agendaScrollView.flickableItem.contentY = Math.min(offsetY, contentHeight-viewportHeight)
+		}
 
 		function positionViewAtBeginning() {
 			scrollToY(0)

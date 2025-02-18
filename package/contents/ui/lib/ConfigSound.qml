@@ -39,7 +39,7 @@ RowLayout {
 		Layout.fillWidth: true
 	}
 	Button {
-        icon.name: "folder-symbolic"
+		icon.name: "folder-symbolic"
 		enabled: sfxEnabled
 		onClicked: sfxPathDialog.visible = true
 
