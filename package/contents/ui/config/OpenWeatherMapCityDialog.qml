@@ -3,6 +3,7 @@ import QtQuick.Dialogs
 import QtQuick.Layouts
 import QtQuick.Controls
 import org.kde.plasma.core as PlasmaCore
+import org.kde.kitemmodels
 
 import ".."
 import "../lib"
@@ -22,11 +23,11 @@ Dialog {
 	}
 
 	ListModel { id: cityListModel }
-	PlasmaCore.SortFilterModel {
+    KSortFilterProxyModel {
 		id: filteredCityListModel
 		// sourceModel: cityListModel // Link after populating cityListModel so the UI doesn't freeze.
-		filterRole: 'name'
-		sortRole: 'name'
+        filterRoleName: 'name'
+        sortRoleName: 'name'
 		sortCaseSensitivity: Qt.CaseInsensitive 
 	}
 

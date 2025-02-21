@@ -66,9 +66,9 @@ PlasmoidItem {
 	}
 
 	Plasma5Support.DataSource {
-		id: executable
+        id: dataSource
 		engine: "executable"
-		connectedSources: []
+        connectedSources: []
 		onNewData: disconnectSource(sourceName) // cmd finished
 		function getUniqueId(cmd) {
 			// Note: we assume that 'cmd' is executed quickly so that a previous call
@@ -173,7 +173,7 @@ PlasmoidItem {
 		function setToday(d) {
 			logger.debug('setToday', d)
 			today = d
-            console.log(root.timezone, dataSource.data[root.timezone]["DateTime"])
+            console.log(root.timezone, dataSource.data["Local"]["DateTime"])
 			logger.debug('currentTime', timeModel.currentTime)
 			monthViewDate = today
 			selectedDate = today
@@ -186,12 +186,6 @@ PlasmoidItem {
 				popup.updateToday()
 				logger.debug('root.onDateChanged', timeModel.currentTime, popup.today)
 			}
-		}
-
-		Binding {
-			target: plasmoid
-			property: "hideOnWindowDeactivate"
-			value: !plasmoid.configuration.pin
 		}
 
 		// Allows the user to keep the calendar open for reference
@@ -209,9 +203,11 @@ PlasmoidItem {
 
 	}
 
+    hideOnWindowDeactivate: !Plasmoid.configuration.pin
+
     Plasmoid.backgroundHints: Plasmoid.configuration.showBackground ? PlasmaCore.Types.DefaultBackground : PlasmaCore.Types.NoBackground
 
-	property bool isDesktopContainment: plasmoid.location == PlasmaCore.Types.Floating
+    property bool isDesktopContainment: Plasmoid.location == PlasmaCore.Types.Floating
     preferredRepresentation: isDesktopContainment ? Plasmoid.fullRepresentation : Plasmoid.compactRepresentation
     // compactRepresentation: clockComponent
     // fullRepresentation: popupComponent

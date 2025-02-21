@@ -3,6 +3,7 @@ import QtQuick.Dialogs
 import QtQuick.Layouts
 import QtQuick.Controls
 import org.kde.plasma.core as PlasmaCore
+import org.kde.kitemmodels
 
 import "../libpl/Requests.js" as Requests
 import ".."
@@ -19,12 +20,12 @@ Dialog {
 
 	ListModel { id: emptyListModel }
 	ListModel { id: cityListModel }
-	PlasmaCore.SortFilterModel {
+    KSortFilterProxyModel {
 		id: filteredCityListModel
 		// sourceModel: cityListModel // Link after populating cityListModel so the UI doesn't freeze.
 		sourceModel: emptyListModel
-		filterRole: 'name'
-		sortRole: 'name'
+        filterRoleName: 'name'
+        sortRoleName: 'name'
 		sortCaseSensitivity: Qt.CaseInsensitive 
 	}
 

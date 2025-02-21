@@ -19,7 +19,7 @@ ColumnLayout {
 	property alias sfxPathValue: configSound.sfxPathValue
 	property alias sfxPathDefaultValue: configSound.sfxPathDefaultValue
 
-	property int indentWidth: 24 * units.devicePixelRatio
+    property int indentWidth: 24 * units.devicePixelRatio
 
 	ConfigCheckBox {
 		id: notificationEnabledCheckBox
