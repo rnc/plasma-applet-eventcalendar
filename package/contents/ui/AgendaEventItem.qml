@@ -220,7 +220,7 @@ LinkRect {
 							return i18n("Hangout")
 						}
 					}
-					icon.source: plasmoid.file("", "icons/hangouts.svg")
+                    icon.source: "../icons/hangouts.svg"
 					onClicked: Qt.openUrlExternally(externalLink)
 				}
 			}

@@ -30,7 +30,7 @@ CalendarManager {
 
 	function fetchEvents(calendarData, startTime, endTime, callback) {
 		logger.debug('ical.fetchEvents', calendarData.url)
-		var cmd = 'python3 ' + plasmoid.file("", "scripts/icsjson.py")
+        var cmd = 'python3 ' + "scripts/icsjson.py"
 		cmd += ' --url "' + calendarData.url + '"' // TODO proper argument wrapping
 		cmd += ' query'
 		cmd += ' ' + startTime.getFullYear() + '-' + (startTime.getMonth()+1) + '-' + startTime.getDate()

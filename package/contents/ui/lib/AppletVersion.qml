@@ -9,17 +9,17 @@ Item {
 	implicitHeight: label.implicitHeight
 
 	property string version: "?"
-	property string metadataFilepath: plasmoid.file("", "../metadata.desktop")
+    property string metadataFilepath: "../metadata.json"
 
     Plasma5Support.DataSource {
 		id: executable
 		engine: "executable"
 		connectedSources: []
-		onNewData: {
+        onNewData: (sourceName, data) => {
 			var exitCode = data["exit code"]
 			var exitStatus = data["exit status"]
-			var stdout = data["stdout"]
-			var stderr = data["stderr"]
+            var stdout = data.stdout
+            var stderr = data.stderr
 			exited(exitCode, exitStatus, stdout, stderr)
 			disconnectSource(sourceName) // cmd finished
 		}
@@ -32,8 +32,8 @@ Item {
 	Connections {
 		target: executable
         function onExited() {
-			version = stdout.replace('\n', ' ').trim()
-		}
+            version = stdout.replace('\n', ' ').trim()
+        }
 	}
 
 	Label {
@@ -42,7 +42,7 @@ Item {
 	}
 
 	Component.onCompleted: {
-		var cmd = 'kreadconfig5 --file "' + metadataFilepath + '" --group "Desktop Entry" --key "X-KDE-PluginInfo-Version"'
+        var cmd = 'kreadconfig6 --file "' + metadataFilepath + '" --group "Desktop Entry" --key "X-KDE-PluginInfo-Version"'
 		executable.exec(cmd)
 	}
 

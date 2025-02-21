@@ -8,12 +8,12 @@ Plasma5Support.DataSource {
 	id: executable
 	engine: "executable"
 	connectedSources: []
-	onNewData: {
+    onNewData: (sourceName, data) => {
 		var cmd = sourceName
 		var exitCode = data["exit code"]
 		var exitStatus = data["exit status"]
-		var stdout = data["stdout"]
-		var stderr = data["stderr"]
+        var stdout = data.stdout
+        var stderr = data.stderr
 		var listener = listeners[cmd]
 		if (listener) {
 			listener(cmd, exitCode, exitStatus, stdout, stderr)

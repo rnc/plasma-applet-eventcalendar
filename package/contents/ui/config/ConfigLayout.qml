@@ -88,7 +88,7 @@ ConfigPage {
                 Image {
                     id: twoColumnsImage
                     anchors.fill: parent
-                    source: plasmoid.file("", "images/twocolumns.svg")
+                    source: "../../images/twocolumns.svg"
                     smooth: true
                     visible: false
                 }
@@ -171,7 +171,7 @@ ConfigPage {
                 Image {
                     id: singleColumnImage
                     anchors.fill: parent
-                    source: plasmoid.file("", "images/singlecolumn.svg")
+                    source: "../../images/singlecolumn.svg"
                     smooth: true
                     visible: false
                 }

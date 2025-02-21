@@ -171,7 +171,7 @@ ColumnLayout {
 
 		property bool loading: false
 		property bool error: false
-		property string source: plasmoid.file("", "config/main.xml")
+        property string source: "config/main.xml"
 
 		signal updated()
 
