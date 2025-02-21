@@ -88,7 +88,8 @@ PlasmoidItem {
 		}
 	}
 
-	property Component clockComponent: ClockView {
+    compactRepresentation: ClockView {
+    //property Component clockComponent: ClockView {
 		id: clock
 
 		currentTime: timeModel.currentTime
@@ -134,7 +135,8 @@ PlasmoidItem {
 		}
 	}
 
-	property Component popupComponent: PopupView {
+    fullRepresentation : PopupView {
+    //property Component popupComponent: PopupView {
 		id: popup
 
 		eventModel: root.eventModel
@@ -207,12 +209,12 @@ PlasmoidItem {
 
 	}
 
-	Plasmoid.backgroundHints: plasmoid.configuration.showBackground ? PlasmaCore.Types.DefaultBackground : PlasmaCore.Types.NoBackground
+    Plasmoid.backgroundHints: Plasmoid.configuration.showBackground ? PlasmaCore.Types.DefaultBackground : PlasmaCore.Types.NoBackground
 
 	property bool isDesktopContainment: plasmoid.location == PlasmaCore.Types.Floating
     preferredRepresentation: isDesktopContainment ? Plasmoid.fullRepresentation : Plasmoid.compactRepresentation
-	compactRepresentation: clockComponent
-	fullRepresentation: popupComponent
+    // compactRepresentation: clockComponent
+    // fullRepresentation: popupComponent
 
 	Plasmoid.contextualActions: [
 		PlasmaCore.Action {

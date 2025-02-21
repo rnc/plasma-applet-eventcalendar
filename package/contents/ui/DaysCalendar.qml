@@ -424,7 +424,7 @@ Item {
 
 				Connections {
 					target: daysCalendar
-					onActivateHighlightedItem: {
+                    function onActivateHighlightedItem() {
 						if (delegate.containsMouse) {
 							delegate.clicked(null)
 						}
