@@ -30,7 +30,7 @@ ConfigPage {
         GridLayout {
             Layout.fillWidth: false
             Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 400 * Kirigami.Units.devicePixelRatio
+            Layout.preferredWidth: 400 * Screen.devicePixelRatio
             columns: 3
 
             //--- Row1
@@ -79,8 +79,8 @@ ConfigPage {
                 Layout.columnSpan: 2
                 Layout.rowSpan: 2
 
-                implicitWidth: 300 * Kirigami.Units.devicePixelRatio
-                implicitHeight: 300 * Kirigami.Units.devicePixelRatio
+                implicitWidth: 300 * Screen.devicePixelRatio
+                implicitHeight: 300 * Screen.devicePixelRatio
 
                 Layout.fillWidth: true
                 Layout.fillHeight: true
@@ -119,12 +119,12 @@ ConfigPage {
         GridLayout {
             Layout.fillWidth: false
             Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 400 * Kirigami.Units.devicePixelRatio
+            Layout.preferredWidth: 400 * Screen.devicePixelRatio
             columns: 3
 
             //--- Row1
             Item {
-                implicitWidth: 150 * Kirigami.Units.devicePixelRatio
+                implicitWidth: 150 * Screen.devicePixelRatio
                 Layout.fillWidth: true
                 Layout.column: 0
                 Layout.row: 0
@@ -150,7 +150,7 @@ ConfigPage {
 
             //--- Row3
             Item {
-                implicitHeight: 150 * Kirigami.Units.devicePixelRatio
+                implicitHeight: 150 * Screen.devicePixelRatio
                 Layout.column: 2
                 Layout.row: 2
             }
@@ -162,8 +162,8 @@ ConfigPage {
                 Layout.columnSpan: 2
                 Layout.rowSpan: 2
 
-                implicitWidth: 300 * Kirigami.Units.devicePixelRatio
-                implicitHeight: 300 * Kirigami.Units.devicePixelRatio
+                implicitWidth: 300 * Screen.devicePixelRatio
+                implicitHeight: 300 * Screen.devicePixelRatio
 
                 Layout.fillWidth: true
                 Layout.fillHeight: true

@@ -13,7 +13,7 @@ RowLayout {
 	id: configColor
 	spacing: 2
 	// Layout.fillWidth: true
-	Layout.maximumWidth: 300 * Kirigami.Units.devicePixelRatio
+	Layout.maximumWidth: 300 * Screen.devicePixelRatio
 
 	property alias label: label.text
 	property alias labelColor: label.color

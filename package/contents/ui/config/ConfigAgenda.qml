@@ -9,7 +9,7 @@ import "../lib"
 ConfigPage {
 	id: page
 
-    property int indentWidth: 24 * Kirigami.Units.devicePixelRatio
+    property int indentWidth: 24 * Screen.devicePixelRatio
 
     Kirigami.FormLayout {
 

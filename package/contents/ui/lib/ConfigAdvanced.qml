@@ -122,7 +122,7 @@ ColumnLayout {
 					text: model.key
 					readOnly: true
 					style: textFieldStyle
-					Layout.preferredWidth: 200 * Kirigami.Units.devicePixelRatio
+					Layout.preferredWidth: 200 * Screen.devicePixelRatio
 					font.bold: !isDefault
 				}
 				TextField {
@@ -130,7 +130,7 @@ ColumnLayout {
 					text: model.stringType || model.configType || model.valueType
 					readOnly: true
 					style: textFieldStyle
-					Layout.preferredWidth: 80 * Kirigami.Units.devicePixelRatio
+					Layout.preferredWidth: 80 * Screen.devicePixelRatio
 				}
 				Loader {
 					id: valueControlLoader
