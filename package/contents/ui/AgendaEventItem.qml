@@ -3,6 +3,7 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.components as PlasmaComponents3
+import org.kde.plasma.plasmoid
 
 import "LocaleFuncs.js" as LocaleFuncs
 import "Shared.js" as Shared
@@ -220,7 +221,7 @@ LinkRect {
 							return i18n("Hangout")
 						}
 					}
-                    icon.source: "../icons/hangouts.svg"
+                    icon.source: Plasmoid.metaData.fileName.replace('metadata.json', 'contents') + "/icons/hangouts.svg"
 					onClicked: Qt.openUrlExternally(externalLink)
 				}
 			}

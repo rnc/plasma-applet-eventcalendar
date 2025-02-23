@@ -9,7 +9,7 @@ Item {
 	implicitHeight: label.implicitHeight
 
 	property string version: "?"
-    property string metadataFilepath: "../metadata.json"
+    property string metadataFilepath: Plasmoid.metaData.fileName
 
     Plasma5Support.DataSource {
 		id: executable

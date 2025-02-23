@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import Qt5Compat.GraphicalEffects as QtGraphicalEffects // TODO Deprecated in Qt6
+import org.kde.plasma.plasmoid
 
 import ".."
 import "../lib"
@@ -88,7 +89,7 @@ ConfigPage {
                 Image {
                     id: twoColumnsImage
                     anchors.fill: parent
-                    source: "../../images/twocolumns.svg"
+                    source: Plasmoid.metaData.fileName.replace('metadata.json', 'contents') + "/images/twocolumns.svg"
                     smooth: true
                     visible: false
                 }
@@ -171,7 +172,7 @@ ConfigPage {
                 Image {
                     id: singleColumnImage
                     anchors.fill: parent
-                    source: "../../images/singlecolumn.svg"
+                    source: Plasmoid.metaData.fileName.replace('metadata.json', 'contents') + "/images/singlecolumn.svg"
                     smooth: true
                     visible: false
                 }

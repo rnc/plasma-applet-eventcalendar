@@ -21,7 +21,7 @@ PlasmoidItem {
 		name: 'eventcalendar'
         // showDebug: plasmoid.configuration.debugging
         showDebug: true
-	}
+    }
 
 	ConfigMigration { id: configMigration }
 	AppletConfig { id: appletConfig }
@@ -159,7 +159,7 @@ PlasmoidItem {
 
 		property bool isExpanded: root.expanded
 		onIsExpandedChanged: {
-			logger.debug('isExpanded', isExpanded)
+            logger.debug('isExpanded', isExpanded)
 			if (isExpanded) {
 				updateToday()
 				logic.updateWeather()
@@ -171,7 +171,7 @@ PlasmoidItem {
 		}
 
 		function setToday(d) {
-			logger.debug('setToday', d)
+            logger.debug('setToday', d)
 			today = d
             console.log(root.timezone, dataSource.data["Local"]["DateTime"])
 			logger.debug('currentTime', timeModel.currentTime)

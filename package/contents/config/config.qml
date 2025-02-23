@@ -1,6 +1,7 @@
 import QtQuick
 import org.kde.plasma.configuration
 import org.kde.plasma.workspace.calendar as PlasmaCalendar
+import org.kde.plasma.plasmoid
 
 import "../ui/calendars/PlasmaCalendarUtils.js" as PlasmaCalendarUtils
 
@@ -46,12 +47,11 @@ ConfigModel {
 		name: i18n("ICalendar (.ics)")
 		icon: "text-calendar"
 		source: "config/ConfigICal.qml"
-		visible: plasmoid.configuration.debugging
+        visible: Plasmoid.configuration.debugging
 	}
 	ConfigCategory {
 		name: i18n("Google Calendar")
-// TODO: Fix filename/icon path
-//		icon: plasmoid.file("", "icons/google_calendar_96px.png")
+        icon: Plasmoid.metaData.fileName.replace('metadata.json', 'contents') + "/icons/google_calendar_96px.png"
 		source: "config/ConfigGoogleCalendar.qml"
 	}
 	ConfigCategory {
@@ -61,19 +61,19 @@ ConfigModel {
 	}
 	ConfigCategory {
 		name: i18n("Advanced")
-		icon: "applications-development"
+        icon: "applications-development"
 		source: "lib/ConfigAdvanced.qml"
-		visible: plasmoid.configuration.debugging
+        visible: Plasmoid.configuration.debugging
 	}
 
-	property Instantiator __eventPlugins: Instantiator {
+    property Instantiator __eventPlugins: Instantiator {
 		model: PlasmaCalendar.EventPluginsManager.model
 		delegate: ConfigCategory {
 			name: model.display
 			icon: model.decoration
 			source: model.configUi
 			readonly property string pluginFilename: PlasmaCalendarUtils.getPluginFilename(model.pluginPath)
-			visible: plasmoid.configuration.enabledCalendarPlugins.indexOf(pluginFilename) > -1
+            visible: Plasmoid.configuration.enabledCalendarPlugins.indexOf(pluginFilename) > -1
 		}
 
 		onObjectAdded: configModel.appendCategory(object)

@@ -13,7 +13,7 @@ QtObject {
 
 		var cmd = [
 			'python3',
-            "../scripts/notification.py",
+            Plasmoid.metaData.fileName.replace('metadata.json', 'contents') +  "/scripts/notification.py",
 		]
 		if (args.appName) {
 			cmd.push('--app-name', args.appName)

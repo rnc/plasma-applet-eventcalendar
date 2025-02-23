@@ -266,7 +266,7 @@ ConfigPage {
 			text: i18n("Tasks")
 
 			Image {
-                source: "../../icons/google_tasks_96px.png"
+                source: Plasmoid.metaData.fileName.replace('metadata.json', 'contents') + "/icons/google_tasks_96px.png"
 				smooth: true
 				anchors.leftMargin: parent.contentWidth + Kirigami.Units.smallSpacing
 				anchors.left: parent.left
